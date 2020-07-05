@@ -26,6 +26,9 @@ public class AnnotationApplicationContextAsIocContainerDemo {
         applicationContext.refresh();
         //依赖查找
         lookupByCollectionType(applicationContext);
+
+        //关闭或者停止
+        applicationContext.close();
     }
 
     /**
