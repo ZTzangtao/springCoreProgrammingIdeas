@@ -46,5 +46,4 @@ public class SpecialBeanInstantiationDemo {
             System.out.println(userFactory.createUser());
         }
     }
-
 }
