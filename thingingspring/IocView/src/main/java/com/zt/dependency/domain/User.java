@@ -9,4 +9,11 @@ public class User {
     private int age;
 
     private  int id;
+
+    public static User createUser(){
+        User user = new User();
+        user.setId(2);
+        user.setName("zt-tommy");
+        return user;
+    }
 }
