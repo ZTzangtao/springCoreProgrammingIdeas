@@ -16,4 +16,8 @@ public class User {
         user.setName("zt-tommy");
         return user;
     }
+
+    public void ztTest(){
+        System.out.println("多帅啊！");
+    }
 }

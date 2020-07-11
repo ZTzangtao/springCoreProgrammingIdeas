@@ -21,8 +21,16 @@ public class BeanDefinitionCreationDemo {
         beanDefinitionBuilder
                 .addPropertyValue("id",1)
                 .addPropertyValue("name","zt");
+
+        //设置初始化方法 (failed!!) todo
+         beanDefinitionBuilder.setInitMethodName("ztTest");
+
+
         //获取BeanDefinition实例
         BeanDefinition beanDefinition = beanDefinitionBuilder.getBeanDefinition();
+        System.out.println(beanDefinition.getInitMethodName());
+
+
         //BeanDefinition并非Bean终态，可以自定义修改
 
         //2.通过 AbstractBeanDefinition 以及派生类
