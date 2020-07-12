@@ -1,8 +1,10 @@
 package com.zt.spring.bean.factory;
 
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
  * 默认 {@link UserFactory}实现
@@ -10,7 +12,7 @@ import javax.annotation.PostConstruct;
  * @author Tommy
  * @date 2020/7/10 9:37 下午
  */
-public class DefaultUserFactory implements UserFactory, InitializingBean {
+public class DefaultUserFactory implements UserFactory, InitializingBean, DisposableBean {
 
     //1、基于@PostConstruct 注解
     @PostConstruct
@@ -32,4 +34,17 @@ public class DefaultUserFactory implements UserFactory, InitializingBean {
         System.out.println("多帅啊！");
     }
 
+    @PreDestroy
+    public void PreDestroy(){
+        System.out.println("@PreDestroy : UserFactory销毁中...");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("DisposableBean # destroy() : UserFactory销毁中...");
+    }
+
+    public void doDestroy(){
+        System.out.println("自定义销毁方法 doDestroy() : UserFactory销毁中...");
+    }
 }
