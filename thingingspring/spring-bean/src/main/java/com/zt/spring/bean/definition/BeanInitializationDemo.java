@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Lazy;
 @Configuration //Configuration Class
 public class BeanInitializationDemo {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         //创建 BeanFactory容器
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         //注册Configuration Class(配置类)
@@ -36,6 +36,11 @@ public class BeanInitializationDemo {
         //关闭spring应用上下文
         applicationContext.close();
         System.out.println("Spring应用上下文 已关闭...");
+
+        Thread.sleep(5000L);
+        //强行触发gc
+        System.gc();
+        Thread.sleep(5000L);
     }
 
     @Bean(initMethod = "initUserFactory",destroyMethod = "doDestroy")
@@ -43,6 +48,8 @@ public class BeanInitializationDemo {
     public UserFactory userFactory(){
         return  new DefaultUserFactory();
     }
+
+
 
 
 }

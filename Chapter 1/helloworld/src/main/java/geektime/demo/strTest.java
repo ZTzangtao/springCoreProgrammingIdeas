@@ -1,16 +1,11 @@
 package geektime.demo;
 
-import org.springframework.beans.factory.InitializingBean;
-
-import javax.servlet.SingleThreadModel;
 import java.lang.reflect.Field;
-import java.util.*;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.Collection;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
-import java.util.jar.JarOutputStream;
 
-import static java.util.Arrays.asList;
 import static java.util.concurrent.Executors.newSingleThreadExecutor;
 
 /**
