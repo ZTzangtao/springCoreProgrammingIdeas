@@ -12,6 +12,7 @@
         <module>IocView</module>
         <module>spring-bean</module>
         <module>dependency-lookup</module>
+        <module>dependency-injection</module>
     </modules>
 
     <dependencies>
