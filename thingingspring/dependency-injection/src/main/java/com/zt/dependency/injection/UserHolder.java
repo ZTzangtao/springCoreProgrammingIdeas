@@ -12,4 +12,11 @@ import lombok.Data;
 @Data
 public class UserHolder {
     private User user;
+
+    public UserHolder(User user) {
+        this.user = user;
+    }
+    public UserHolder(){
+
+    }
 }
