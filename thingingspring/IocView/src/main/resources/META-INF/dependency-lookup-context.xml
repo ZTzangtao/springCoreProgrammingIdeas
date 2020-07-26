@@ -7,6 +7,17 @@
 <bean id="user" class="com.zt.dependency.domain.User" >
     <property name="id" value="1"/>
     <property name="name" value="zt"/>
+    <property name="city" value="SHANGHAI"/>
+    <property name="workCities" value="BEIJING,SHANGHAI"/>
+    <property name="lifeCities">
+        <list>
+            <value>BEIJING</value>
+            <value>HANGZHOU</value>
+        </list>
+    </property>
+    <property name="configFileLocation" value="classpath:/META-INF/user-config.properties"/>
+
+
 </bean>
 
     <bean id = "supperUser" class="com.zt.dependency.domain.SuperUser" parent="user" primary="true">

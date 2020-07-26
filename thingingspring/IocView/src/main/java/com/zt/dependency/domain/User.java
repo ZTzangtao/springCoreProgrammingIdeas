@@ -1,6 +1,10 @@
 package com.zt.dependency.domain;
 
+import com.zt.dependency.enums.City;
 import lombok.Data;
+import org.springframework.core.io.Resource;
+
+import java.util.List;
 
 @Data
 public class User {
@@ -9,6 +13,14 @@ public class User {
     private int age;
 
     private  int id;
+
+    private City city;
+
+    private City[] workCities;
+
+    private List<City> lifeCities;
+
+    private Resource configFileLocation;
 
     public static User createUser(){
         User user = new User();
