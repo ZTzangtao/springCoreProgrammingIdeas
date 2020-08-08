@@ -2,12 +2,15 @@ package com.zt.dependency.domain;
 
 import com.zt.dependency.enums.City;
 import lombok.Data;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.core.io.Resource;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 
 @Data
-public class User {
+public class User implements BeanNameAware {
     private String name;
 
     private int age;
@@ -22,6 +25,9 @@ public class User {
 
     private Resource configFileLocation;
 
+    //当前bean的名称
+    private transient String beanName;
+
     public static User createUser(){
         User user = new User();
         user.setId(2);
@@ -31,5 +37,20 @@ public class User {
 
     public void ztTest(){
         System.out.println("多帅啊！");
+    }
+
+    @PostConstruct
+    public void init(){
+        System.out.println("用户Bean["+beanName+"]对象初始化...");
+    }
+
+    @PreDestroy
+    public void destroyBean(){
+        System.out.println("用户Bean["+beanName+"]对象销毁...");
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        this.beanName = name;
     }
 }
