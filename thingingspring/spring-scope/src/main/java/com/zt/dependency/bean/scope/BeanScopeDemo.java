@@ -2,11 +2,14 @@ package com.zt.dependency.bean.scope;
 
 import com.zt.dependency.domain.User;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
@@ -60,6 +63,9 @@ public class BeanScopeDemo implements DisposableBean {
 
     @Autowired
     private Map<String,User> users;
+
+    @Autowired
+    private ConfigurableListableBeanFactory beanFactory; //Resolvable Dependency
 
     public static void main(String[] args) {
         //创建 BeanFactory容器
@@ -122,4 +128,24 @@ public class BeanScopeDemo implements DisposableBean {
     }
 
 
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("当前 BeanScopeDemo Bean 正在销毁中...");
+
+        this.prototypeUser.destroyBean();
+        this.prototypeUser1.destroyBean();
+        this.prototypeUser2.destroyBean();
+        //获取 BeanDefinition
+        for(Map.Entry<String,User> entry : this.users.entrySet()){
+            String beanName = entry.getKey();
+            BeanDefinition beanDefinition = beanFactory.getBeanDefinition(beanName);
+            //如果当前bean是prototype
+            if(beanDefinition.isPrototype()){
+                User user = entry.getValue();
+                user.destroyBean();
+            }
+        }
+        System.out.println("当前 BeanScopeDemo Bean 销毁完成");
+
+    }
 }
