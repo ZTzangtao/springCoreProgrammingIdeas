@@ -8,31 +8,30 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/beans/spring-context.xsd">
 
-    <context:annotation-config />
-    
-    <context:component-scan base-package="org.acme"/>
+<!--    <context:annotation-config />-->
+<!--    -->
+<!--    <context:component-scan base-package="org.acme"/>-->
 
-<bean id="user" class="com.zt.dependency.domain.User" >
-    <property name="id" value="1"/>
-    <property name="name" value="zt"/>
-    <property name="city" value="SHANGHAI"/>
-    <property name="workCities" value="BEIJING,SHANGHAI"/>
-    <property name="lifeCities">
-        <list>
-            <value>BEIJING</value>
-            <value>HANGZHOU</value>
-        </list>
-    </property>
-    <property name="configFileLocation" value="classpath:/META-INF/user-config.properties"/>
-
-
-</bean>
+    <bean id="user" class="com.zt.dependency.domain.User" >
+        <property name="id" value="1"/>
+        <property name="name" value="zt"/>
+        <property name="city" value="SHANGHAI"/>
+        <property name="workCities" value="BEIJING,SHANGHAI"/>
+        <property name="lifeCities">
+            <list>
+                <value>BEIJING</value>
+                <value>HANGZHOU</value>
+            </list>
+        </property>
+        <property name="configFileLocation" value="classpath:/META-INF/user-config.properties"/>
+    </bean>
 
     <bean id = "supperUser" class="com.zt.dependency.domain.SuperUser" parent="user" primary="true">
         <property name="address" value="上海" />
     </bean>
     <!-- more bean definitions for services go here -->
-<bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
-    <property name="targetBeanName" value="user" />
-</bean>
+    <bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+        <property name="targetBeanName" value="user" />
+    </bean>
+
 </beans>
