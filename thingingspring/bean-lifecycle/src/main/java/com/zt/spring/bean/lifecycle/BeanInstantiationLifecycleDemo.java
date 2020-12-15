@@ -9,7 +9,6 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.EncodedResource;
-import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
