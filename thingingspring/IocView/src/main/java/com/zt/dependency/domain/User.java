@@ -9,6 +9,9 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.List;
 
+/**
+ * @author zangtao
+ */
 @Data
 public class User implements BeanNameAware {
     private String name;
