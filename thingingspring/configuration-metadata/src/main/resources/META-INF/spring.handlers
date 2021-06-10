@@ -1,0 +1,2 @@
+##定义namespace 与 NamespaceHandler的映射
+http\://time.zt.org/schema/users=com.zt.spring.configuration.metadata.UsersNamespaceHandler
