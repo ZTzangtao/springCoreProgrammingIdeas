@@ -17,6 +17,7 @@
         <module>spring-scope</module>
         <module>bean-lifecycle</module>
         <module>configuration-metadata</module>
+        <module>resource</module>
     </modules>
 
     <dependencies>
