@@ -29,9 +29,11 @@ public class EncodedFileSystemResourceDemo {
         FileSystemResource fileSystemResource = new FileSystemResource(currentJavaFile);
         EncodedResource encodedResource = new EncodedResource(fileSystemResource, "UTF-8");
         //字符输入流
-        Reader reader = encodedResource.getReader();
-        CharArrayWriter writer = new CharArrayWriter();
-        System.out.println(IOUtils.toString(reader));
+
+        try ( Reader reader = encodedResource.getReader();){
+            System.out.println(IOUtils.toString(reader));
+        }
+
 
     }
 }
