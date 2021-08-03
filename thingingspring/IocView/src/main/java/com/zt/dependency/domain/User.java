@@ -28,6 +28,8 @@ public class User implements BeanNameAware {
 
     private Resource configFileLocation;
 
+    private Company company;
+
     //当前bean的名称
     private transient String beanName;
 
