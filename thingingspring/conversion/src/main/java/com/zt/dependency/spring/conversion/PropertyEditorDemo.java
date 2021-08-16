@@ -24,6 +24,9 @@ public class PropertyEditorDemo {
 
         System.out.println(propertyEditor.getValue());
 
+        System.out.println(propertyEditor.getAsText());
+
+
     }
 
 }
