@@ -8,6 +8,7 @@ import org.springframework.core.io.Resource;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * @author zangtao
@@ -29,6 +30,8 @@ public class User implements BeanNameAware {
     private Resource configFileLocation;
 
     private Company company;
+
+    private Properties context;
 
     //当前bean的名称
     private transient String beanName;
