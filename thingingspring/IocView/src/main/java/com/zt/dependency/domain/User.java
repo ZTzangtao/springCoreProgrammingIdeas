@@ -33,6 +33,8 @@ public class User implements BeanNameAware {
 
     private Properties context;
 
+    private String contextAsText;
+
     //当前bean的名称
     private transient String beanName;
 
