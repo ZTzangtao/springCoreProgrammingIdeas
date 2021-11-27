@@ -9,6 +9,6 @@ package com.zt.aop.overview;
  */
 public interface EchoService {
 
-    String echo(String message);
+    String echo(String message) throws NullPointerException;
 
 }
