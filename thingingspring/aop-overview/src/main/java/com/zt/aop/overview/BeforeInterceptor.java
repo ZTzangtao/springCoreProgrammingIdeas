@@ -20,5 +20,5 @@ public interface BeforeInterceptor {
      * @param args
      * @return
      */
-    Object before (Object proxy, Method method, Object[] args);
+    Object before(Object proxy, Method method, Object[] args);
 }

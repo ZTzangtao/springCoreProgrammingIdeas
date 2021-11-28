@@ -24,7 +24,7 @@
         <module>conversion</module>
         <module>generic</module>
         <module>event</module>
-        <module>ioc-overview</module>
+        <module>aop-overview</module>
     </modules>
 
     <properties>
@@ -34,6 +34,13 @@
     <!-- Spring 依赖管理 -->
 <!--    <dependencyManagement>-->
         <dependencies>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>

@@ -15,7 +15,7 @@ public class TargetFilterDemo {
 
 
     public static void main(String[] args) throws ClassNotFoundException {
-        String targetClassName = "com.zt.aop.overview.EchoService";
+        String targetClassName = "com.zt.aop.EchoService";
 
         // 获取当前线程 ClassLoader
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
