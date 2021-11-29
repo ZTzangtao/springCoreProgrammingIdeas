@@ -25,6 +25,7 @@
         <module>generic</module>
         <module>event</module>
         <module>aop-overview</module>
+        <module>aop-features</module>
     </modules>
 
     <properties>
