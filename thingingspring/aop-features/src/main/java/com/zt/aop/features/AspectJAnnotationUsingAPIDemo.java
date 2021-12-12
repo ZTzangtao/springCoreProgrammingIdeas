@@ -24,7 +24,7 @@ public class AspectJAnnotationUsingAPIDemo {
         Map<String, Object> cache = new HashMap<>();
 
         // 创建 Proxy工厂（AspectJ）
-        AspectJProxyFactory proxyFactory = new AspectJProxyFactory();
+        AspectJProxyFactory proxyFactory = new AspectJProxyFactory(cache);
 
         // 增加 Aspect 配置类
         proxyFactory.addAspect(AspectConfiguration.class);

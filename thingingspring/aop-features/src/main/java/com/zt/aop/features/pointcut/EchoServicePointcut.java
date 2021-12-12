@@ -21,6 +21,9 @@ public class EchoServicePointcut extends StaticMethodMatcherPointcut {
                 && this.targetClass.isAssignableFrom(targetClass);
     }
 
+    public EchoServicePointcut() {
+    }
+
     public EchoServicePointcut(String methodName, Class targetClass) {
         this.methodName = methodName;
         this.targetClass = targetClass;
@@ -41,6 +44,7 @@ public class EchoServicePointcut extends StaticMethodMatcherPointcut {
     public void setTargetClass(Class targetClass) {
         this.targetClass = targetClass;
     }
+
 
 
 }
