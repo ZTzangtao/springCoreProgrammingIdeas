@@ -1,11 +1,10 @@
 package com.zt.aop.features.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.core.annotation.Order;
+
+import java.util.Random;
 
 /**
  * Aspect 配置类
@@ -29,10 +28,29 @@ public class AspectConfiguration {
         return pjp.proceed();
     }
 
-
     @Before("anyPublicMethod()") // Join Point 拦截动作
-    public void beforeAnyPublicMethod() {
+    public void beforeAnyPublicMethod() throws Throwable {
+        Random random = new Random();
+
+        if(random.nextBoolean()){
+            throw new RuntimeException("For Purpose.");
+        }
         System.out.println("@Before any public method.");
+    }
+
+    @After("anyPublicMethod()")
+    public void finalizeAnyPublicMethod() {
+        System.out.println("@After any public method.");
+    }
+
+    @AfterReturning("anyPublicMethod()")
+    public void afterAnyPublicMethod() {
+        System.out.println("@AfterReturning any public method.");
+    }
+
+    @AfterThrowing("anyPublicMethod()")
+    public void afterThrowingAnyPublicMethod() {
+        System.out.println("@AfterThrowing any public method.");
     }
 
 }
