@@ -1,6 +1,7 @@
 package com.zt.aop.features;
 
 import com.zt.aop.features.interceptor.EchoServiceMethodInterceptor;
+import com.zt.aop.features.pointcut.EchoServiceEchoMethodPointcut;
 import com.zt.aop.features.pointcut.EchoServicePointcut;
 import com.zt.aop.overview.DefaultEchoService;
 import com.zt.aop.overview.EchoService;
@@ -14,7 +15,10 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
 public class RawPointcutAPIDemo {
 
     public static void main(String[] args) {
-        EchoServicePointcut pointcut = new EchoServicePointcut("echo", EchoService.class);
+
+        EchoServiceEchoMethodPointcut pointcut = EchoServiceEchoMethodPointcut.INSTANCE;
+
+//        EchoServicePointcut pointcut = new EchoServicePointcut("echo", EchoService.class);
 
         // 将 Pointcut 适配成 Advisor
 
