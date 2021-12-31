@@ -6,6 +6,7 @@ import com.zt.aop.features.pointcut.EchoServicePointcut;
 import com.zt.aop.overview.DefaultEchoService;
 import com.zt.aop.overview.EchoService;
 import org.springframework.aop.framework.ProxyFactory;
+import org.springframework.aop.support.ComposablePointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 
 /**
@@ -16,9 +17,16 @@ public class RawPointcutAPIDemo {
 
     public static void main(String[] args) {
 
-        EchoServiceEchoMethodPointcut pointcut = EchoServiceEchoMethodPointcut.INSTANCE;
+//        EchoServiceEchoMethodPointcut pointcut = EchoServiceEchoMethodPointcut.INSTANCE;
 
 //        EchoServicePointcut pointcut = new EchoServicePointcut("echo", EchoService.class);
+        EchoServicePointcut echoServicePointcut = new EchoServicePointcut("echo", EchoService.class);
+
+        ComposablePointcut pointcut = new ComposablePointcut(EchoServiceEchoMethodPointcut.INSTANCE);
+
+        pointcut.intersection(echoServicePointcut.getClassFilter());
+        pointcut.intersection(echoServicePointcut.getMethodMatcher());
+
 
         // 将 Pointcut 适配成 Advisor
 
